@@ -15,31 +15,24 @@ const Login = ({ setLoggedIn, setUsername }) => {
       localStorage.setItem("username", loginUsername);
       setUsername(loginUsername);
     }
-    return (
-      <>
-        <div id="LoginBoxCenter">
-          <div id="LoginBox">
-            <div>
-              <h1 id="LoginHeader">Log In To Your Account</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <input id="HUsername" placeholder="Username"></input>
-              </div>
-              <div>
-                <input
-                  id="HPassword"
-                  placeholder="Password"
-                  type="password"
-                ></input>
-              </div>
-              <button type="Submit">LOGIN</button>
-            </form>
-          </div>
-        </div>
-      </>
-    );
   }
+    return (
+      <div id = "loginBox">
+   <form onSubmit={handleSubmit}>
+        <h1>Log in to you account</h1>
+        <label>login username</label>
+        <input id="username" 
+        placeholder="login username here">
+        </input>
+        <label>password</label>
+        <input id="password" 
+        placeholder="login password here">
+        </input>
+        <button type="submit">Login</button>
+    </form>
+    </div>
+    );
+  
 };
 
 export default Login;
