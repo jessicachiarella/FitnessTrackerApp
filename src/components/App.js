@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
+    
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <div>
-            <h1>Hello World</h1>
+             <Header loggedIn={loggedIn} />
         </div>
     )
 }
