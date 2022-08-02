@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { getUser } from "../../api/index";
+import { NavLink } from "react-router-dom";
 
 
-const Me = () => {
+const Me = ({loggedIn}) => {
   let token = "";
   useEffect(() => {
     token = localStorage.getItem("token");
@@ -16,10 +17,18 @@ const Me = () => {
 
   return (
     <div>
+      {loggedIn ?
+      <div>
       <h1 id="ProfileHeader">
       WELCOME 
-      </h1>
+      </h1> 
+      <div > 
+        <NavLink to="/users/myroutines" >MY ROUTINES</NavLink>
+      </div> </div>: null
+      
+}
       </div>
+      
       )
   
 }

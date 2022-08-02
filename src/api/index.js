@@ -40,9 +40,60 @@ export async function LoginPerson(event) {
     const response = await fetch(`${API_URL}/users/me`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
     const result = await response.json();
+    console.log(result, "This is my me resssssssssssssult")
     return result;
 }
+
+export async function getRoutines() {
+    const response = await fetch(`${API_URL}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const routines = await response.json();
+    return routines;
+}
+
+export async function getUserRoutines(username) {
+    const response = await fetch(`${API_URL}/users/${username}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const userRoutines = await response.json();
+    return userRoutines;
+}
+
+export async function getActivities() {
+    const response = await fetch(`${API_URL}/activities`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const activities = await response.json();
+    return activities;
+}
+
+export async function addActivity(
+    token,
+    nameInput,
+    descriptionInput
+  ) {
+    const response = await fetch(`${API_URL}/activities`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: nameInput,
+        description: descriptionInput,
+      }),
+    });
+    const result = await response.json();
+    return result
+  }
