@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Register, Header, Login } from "./";
+import { Register, Header, Login, Me } from "./";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,6 +26,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/users/me" element={<Me />} />
         </Routes>
       </>
     </div>

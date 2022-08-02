@@ -35,3 +35,14 @@ export async function LoginPerson(event) {
   const token = result.token;
   return token;
 }
+
+  export async function getUser(token) {
+    const response = await fetch(`${API_URL}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+}

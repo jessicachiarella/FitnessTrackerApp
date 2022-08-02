@@ -15,6 +15,7 @@ const Login = ({ setLoggedIn, setUsername }) => {
       localStorage.setItem("username", loginUsername);
       setUsername(loginUsername);
     }
+    navigate("/users/me");
   }
     return (
       <div id = "loginBox">
