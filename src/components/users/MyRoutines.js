@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { getUserRoutines } from "../../api/index";
+import { getRoutines, getUserRoutines } from "../../api/index";
 
 const MyRoutines = ({username, loggedIn, setUserRoutines }) => {
     useEffect(() => {
@@ -13,11 +13,10 @@ const MyRoutines = ({username, loggedIn, setUserRoutines }) => {
         setUserRoutines([]);
       }, []);
 
-
 return (
     <div>
       <h1 id="ProfileHeader">
-      WELCOME 
+      WELCOME TO MY ROUTINES
       </h1>
       </div>
       )

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Register, Header, Login, Me, MyRoutines, Routines, Activities } from "./";
+import { Register, Header, Login, Me, MyRoutines, Routines, Activities, Logout } from "./";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,6 +35,8 @@ const App = () => {
           <Route path="/routines" element={<Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines}/>} />
           <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} userRoutines={userRoutines} setUserRoutines={setUserRoutines}/>} />
           <Route path="/activities" element={<Activities allActivities={allActivities} setAllActivities={setAllActivities} nameInput={nameInput} setNameInput={setNameInput} descriptionInput={descriptionInput} setDescriptionInput={setDescriptionInput} />} />
+          <Route path="header" element={<Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUsername={setUsername} setPassword={setPassword}/>} />
+          <Route path="Logout" element={<Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         </Routes>
       </>
     </div>

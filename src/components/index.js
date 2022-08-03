@@ -6,4 +6,6 @@ export {default as Me} from './users/Me'
 export {default as MyRoutines} from './users/MyRoutines'
 export {default as Routines} from './Routines'
 export {default as Activities} from './Activities'
+export {default as Logout} from './users/Logout'
+
 
