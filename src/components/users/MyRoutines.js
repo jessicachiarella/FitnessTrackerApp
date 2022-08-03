@@ -34,6 +34,7 @@ console.log(loggedIn, "AM I LOGGED IN RIGHT NOW?")
 if(loggedIn){
     return (
         <div>
+        <div>
       <h1 id="ProfileHeader">
       WELCOME TO MY ROUTINES
       </h1>
@@ -116,7 +117,7 @@ if(loggedIn){
               }
             )}
           </div>
-        </div>
+        
       );
 }
   

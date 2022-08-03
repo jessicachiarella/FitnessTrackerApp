@@ -37,8 +37,8 @@ const App = () => {
           <Route path="/routines" element={<Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} loggedIn={loggedIn} />} />
           <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} myRoutines={myRoutines} setMyRoutines={setMyRoutines} allRoutines={allRoutines} setAllRoutines={setAllRoutines} routineNameInput={routineNameInput} setRoutineNameInput={setRoutineNameInput} goalInput={goalInput} setGoalInput={setGoalInput} />} />
           <Route path="/activities" element={<Activities allActivities={allActivities} setAllActivities={setAllActivities} nameInput={nameInput} setNameInput={setNameInput} descriptionInput={descriptionInput} setDescriptionInput={setDescriptionInput} />} />
-          <Route path="header" element={<Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUsername={setUsername} setPassword={setPassword}/>} />
-          <Route path="Logout" element={<Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+          <Route path="/header" element={<Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUsername={setUsername} setPassword={setPassword}/>} />
+          <Route path="/users/logout" element={<Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         </Routes>
       </>
     </div>
