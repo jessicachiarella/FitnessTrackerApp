@@ -58,10 +58,59 @@ export async function getRoutines() {
     return routines;
 }
 
+export async function addRoutine(
+    routineNameInput,
+    goalInput,
+    isPublicInput
+  ) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routines`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: routineNameInput,
+        goal: goalInput,
+        isPublic: isPublicInput
+
+      }),
+    });
+    const result = await response.json();
+    console.log(result, "This is my addroutine from my api call")
+    return result
+  }
+  export async function updateRoutine(
+    id,
+    routineNameInput,
+    goalInput,
+    isPublicInput
+  ) {
+    console.log(id, "This is my id from my update routine api call")
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routines/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: routineNameInput,
+        goal: goalInput,
+        isPublic: isPublicInput
+      }),
+    });
+    const result = await response.json();
+    console.log(result, "This is my editroutine from my api call")
+    return result
+  }
+
 export async function getUserRoutines(username) {
     const response = await fetch(`${API_URL}/users/${username}/routines`, {
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
       },
     });
     const userRoutines = await response.json();
@@ -75,6 +124,7 @@ export async function getActivities() {
       },
     });
     const activities = await response.json();
+    console.log(activities, "This is my activities from my api call")
     return activities;
 }
 
@@ -88,6 +138,26 @@ export async function addActivity(
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: nameInput,
+        description: descriptionInput,
+      }),
+    });
+    const result = await response.json();
+    return result
+  }
+
+  export async function updateActivity(
+    nameInput,
+    descriptionInput,
+    activityId
+  ) {
+    console.log(activityId, "This is my id from my edit api call")
+    const response = await fetch(`${API_URL}/activities/${activityId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: nameInput,
