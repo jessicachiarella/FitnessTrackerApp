@@ -82,6 +82,30 @@ export async function addRoutine(
     console.log(result, "This is my addroutine from my api call")
     return result
   }
+  export async function updateRoutine(
+    id,
+    routineNameInput,
+    goalInput,
+    isPublicInput
+  ) {
+    console.log(id, "This is my id from my update routine api call")
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routines/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: routineNameInput,
+        goal: goalInput,
+        isPublic: isPublicInput
+      }),
+    });
+    const result = await response.json();
+    console.log(result, "This is my editroutine from my api call")
+    return result
+  }
 
 export async function getUserRoutines(username) {
     const response = await fetch(`${API_URL}/users/${username}/routines`, {

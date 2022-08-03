@@ -1,10 +1,9 @@
 import React, { useEffect } from "react"
 import { getRoutines } from "../../api/index";
+import EditRoutine from "../EditRoutine";
 
-const MyRoutines = ({username, loggedIn, allRoutines, setAllRoutines }) => {
+const MyRoutines = ({username, loggedIn, allRoutines, setAllRoutines, routineNameInput, setRoutineNameInput, goalInput, setGoalInput, checked, setChecked }) => {
 
-
-const token = localStorage.getItem("token");
 
 useEffect(() => {
     getRoutines().then((results) => {
@@ -25,6 +24,15 @@ if(loggedIn){
                       <h2 id="Name">{name}</h2>
                       <p id="Goal">Goal: {goal}</p>
                       <p id="creatorName">Creator Name: {creatorName}</p>
+                      <EditRoutine
+                      id={id}
+                      routineNameInput={routineNameInput}
+                      setRoutineNameInput={setRoutineNameInput}
+                      goalInput={goalInput}
+                      setGoalInput={setGoalInput}
+                      checked={checked}
+                      setChecked={setChecked}
+                    />
     
                       <div id="Activities">
                         {activities.map(
