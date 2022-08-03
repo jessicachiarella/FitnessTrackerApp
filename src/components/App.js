@@ -6,11 +6,13 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [userRoutines, setUserRoutines] = useState([]);
+  const [myRoutines, setMyRoutines] = useState([]);
   const [allRoutines, setAllRoutines] = useState([]);
   const [allActivities, setAllActivities] = useState([]);
   const [nameInput, setNameInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
+  const [routineNameInput, setRoutineNameInput] = useState("");
+  const [goalInput, setGoalInput] = useState("");
 
   return (
     <div>
@@ -32,8 +34,8 @@ const App = () => {
             }
           />
           <Route path="/users/me" element={<Me loggedIn={loggedIn}/>} />
-          <Route path="/routines" element={<Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines}/>} />
-          <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} userRoutines={userRoutines} setUserRoutines={setUserRoutines}/>} />
+          <Route path="/routines" element={<Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} routineNameInput={routineNameInput} setRoutineNameInput={setRoutineNameInput} goalInput={goalInput} setGoalInput={setGoalInput} loggedIn={loggedIn} />} />
+          <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} myRoutines={myRoutines} setMyRoutines={setMyRoutines} allRoutines={allRoutines} setAllRoutines={setAllRoutines} />} />
           <Route path="/activities" element={<Activities allActivities={allActivities} setAllActivities={setAllActivities} nameInput={nameInput} setNameInput={setNameInput} descriptionInput={descriptionInput} setDescriptionInput={setDescriptionInput} />} />
         </Routes>
       </>

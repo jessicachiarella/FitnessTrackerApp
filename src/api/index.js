@@ -55,16 +55,43 @@ export async function getRoutines() {
       },
     });
     const routines = await response.json();
+    console.log(routines, "These are my routines from my api call")
     return routines;
 }
+
+export async function addRoutine(
+    token,
+    routineNameInput,
+    goalInput,
+    isPublicInput
+  ) {
+    const response = await fetch(`${API_URL}/routines`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: routineNameInput,
+        goal: goalInput,
+        isPublic: isPublicInput
+
+      }),
+    });
+    const result = await response.json();
+    console.log(result, "This is my addroutine from my api call")
+    return result
+  }
 
 export async function getUserRoutines(username) {
     const response = await fetch(`${API_URL}/users/${username}/routines`, {
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
       },
     });
     const userRoutines = await response.json();
+    console.log(myRoutines, "These are user routines from my api call")
     return userRoutines;
 }
 
