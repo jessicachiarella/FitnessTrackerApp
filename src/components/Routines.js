@@ -7,6 +7,7 @@ const Routines = ({
   setAllRoutines,
 }) => {
 
+
   useEffect(() => {
     getRoutines().then((results) => {
       setAllRoutines(results);
@@ -15,7 +16,14 @@ const Routines = ({
 
  
 console.log(loggedIn," AM I LOGGED IN RIGHT NOW?")
-    return (
+   
+
+return (
+    <div>
+      <h1 id="ProfileHeader">
+      WELCOME TO ROUTINES
+      </h1>
+
       <div>
         <h1 id="ProfileHeader">Routines</h1>
         <div>

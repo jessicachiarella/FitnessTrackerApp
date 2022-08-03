@@ -1,10 +1,13 @@
+
 import React, { useState, useEffect } from "react"
 import { getRoutines, addRoutine } from "../../api/index";
 import EditRoutine from "../EditRoutine";
 import { useNavigate } from "react-router-dom";
 
+
 const MyRoutines = ({username, loggedIn, allRoutines, setAllRoutines, routineNameInput, setRoutineNameInput, goalInput, setGoalInput }) => {
     
+
 
 useEffect(() => {
     getRoutines().then((results) => {
@@ -31,8 +34,10 @@ console.log(loggedIn, "AM I LOGGED IN RIGHT NOW?")
 if(loggedIn){
     return (
         <div>
-          <h1 id="MyRoutinesHeader">My Routines</h1>
-          <div>
+      <h1 id="ProfileHeader">
+      WELCOME TO MY ROUTINES
+      </h1>
+      </div>
           <div>
             <h1>Add New Routine</h1>
           </div>
@@ -114,7 +119,6 @@ if(loggedIn){
         </div>
       );
 }
-
   
 }
 

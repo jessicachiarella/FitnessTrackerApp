@@ -26,6 +26,7 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
         <div>   
         <div id="AddForm">
           <div>
+            <h1>WELCOME TO ACTIVITIES</h1>
             <h1>Add New Activity</h1>
           </div>
           <form onSubmit={handleSubmit}>
