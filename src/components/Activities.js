@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
+import { NavLink } from "react-router-dom";
 
 const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
   useEffect(() => {
@@ -18,6 +19,8 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
     );
     setAllActivities([freshActivity, ...allActivities]);
   }
+
+
         if(token){
             return(
         <div>   
@@ -51,10 +54,14 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
             </button>
           </form>
           {allActivities.map(({ id, name, description }) => {
+            const activityId = id
           return (
-            <div key={id} className="activities">
+            <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
+              <NavLink to={`/activities/${activityId}`} className="editlink">
+            EDIT
+          </NavLink>
             </div>
           );
         })}
@@ -65,10 +72,14 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
             <div>
         <div>
         {allActivities.map(({ id, name, description }) => {
+            const activityId = id
           return (
-            <div key={id} className="activities">
+            <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
+              <NavLink to={`/activities/${activityId}`} className="editlink">
+            EDIT
+          </NavLink>
             </div>
           );
         })}

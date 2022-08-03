@@ -75,6 +75,7 @@ export async function getActivities() {
       },
     });
     const activities = await response.json();
+    console.log(activities, "This is my activities from my api call")
     return activities;
 }
 
@@ -88,6 +89,26 @@ export async function addActivity(
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: nameInput,
+        description: descriptionInput,
+      }),
+    });
+    const result = await response.json();
+    return result
+  }
+
+  export async function updateActivity(
+    nameInput,
+    descriptionInput,
+    activityId
+  ) {
+    console.log(activityId, "This is my id from my edit api call")
+    const response = await fetch(`${API_URL}/activities/${activityId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: nameInput,
