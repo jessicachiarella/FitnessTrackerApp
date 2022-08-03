@@ -12,7 +12,7 @@ const Routines = ({allRoutines, setAllRoutines}) => {
 return (
     <div>
       <h1 id="ProfileHeader">
-      WELCOME 
+      WELCOME TO ROUTINES
       </h1>
       <div>
         {allRoutines.map(({_id, name, isPublic, goal, creatorName, activities }) => {
