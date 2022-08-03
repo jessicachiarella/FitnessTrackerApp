@@ -18,7 +18,8 @@ const EditRoutine = ({ id }) => {
         );
         setAllRoutines([updatedRoutine, ...allRoutines]);
       }
-console.log(id, "This is my id from my edit routine function")
+      
+      
       function handleChange(event) {
         event.preventDefault();
         setChecked(!checked);
