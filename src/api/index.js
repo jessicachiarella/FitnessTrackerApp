@@ -44,7 +44,6 @@ export async function LoginPerson(event) {
       },
     });
     const result = await response.json();
-    console.log(result, "This is my me resssssssssssssult")
     return result;
 }
 
@@ -87,7 +86,6 @@ export async function addRoutine(
     goalInput,
     isPublicInput
   ) {
-    console.log(id, "This is my id from my update routine api call")
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routines/${id}`, {
       method: "PATCH",
@@ -103,6 +101,21 @@ export async function addRoutine(
     });
     const result = await response.json();
     console.log(result, "This is my editroutine from my api call")
+    return result
+  }
+
+  export async function deleteRoutine(
+    id
+  ) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routines/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
     return result
   }
 
@@ -124,7 +137,6 @@ export async function getActivities() {
       },
     });
     const activities = await response.json();
-    console.log(activities, "This is my activities from my api call")
     return activities;
 }
 
