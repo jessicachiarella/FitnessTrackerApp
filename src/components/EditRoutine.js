@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { updateRoutine, getRoutines } from "../api/index";
 
 const EditRoutine = ({
   id,
-  setAllRoutines,
-  routineNameInput,
-  setRoutineNameInput,
-  goalInput,
-  setGoalInput,
-  checked,
-  setChecked,
+  setAllRoutines
 }) => {
+const [routineNameInput, setRoutineNameInput] = useState("");
+const [goalInput, setGoalInput] = useState("");
+const [checked, setChecked] = useState(false);
+
   async function handleSubmit(event) {
     event.preventDefault();
     await updateRoutine(
@@ -23,12 +21,12 @@ const EditRoutine = ({
     setAllRoutines(result);
     setRoutineNameInput("");
     setGoalInput("");
-    setChecked(false);
+    setChecked(event.target.checked);
   }
 
   function handleChange(event) {
     event.preventDefault();
-    setChecked(!checked);
+    setChecked(event.target.checked);
   }
 
   return (

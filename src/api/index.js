@@ -77,7 +77,6 @@ export async function addRoutine(
       }),
     });
     const result = await response.json();
-    console.log(result, "This is my addroutine from my api call")
     return result
   }
   export async function updateRoutine(
@@ -145,7 +144,7 @@ export async function addActivity(
     nameInput,
     descriptionInput
   ) {
-    const response = await fetch(`${API_URL}/activities`, {
+    const response = await fetch(`${API_URL}/activities/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -174,6 +173,28 @@ export async function addActivity(
       body: JSON.stringify({
         name: nameInput,
         description: descriptionInput,
+      }),
+    });
+    const result = await response.json();
+    return result
+  }
+
+  export async function addRoutineActivity(
+    id,
+    activityIdInput,
+    countInput,
+    durationInput
+  ) {
+    const response = await fetch(`${API_URL}/routines/${id}/activities`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        activityId: activityIdInput,
+        count: countInput,
+        duration: durationInput
+
       }),
     });
     const result = await response.json();
