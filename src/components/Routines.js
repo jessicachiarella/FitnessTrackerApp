@@ -27,8 +27,9 @@ return (
       <div>
         <h1 id="ProfileHeader">Routines</h1>
         <div>
-          {allRoutines.map(
-            ({ id, name, isPublic, goal, creatorName, activities }) => {
+          {allRoutines.length ? allRoutines.map(
+            (element) => {
+              const { id, name, isPublic, goal, creatorName, activities } = element
               if (isPublic) {
                 return (
                   <div key={id} className="routines">
@@ -54,7 +55,7 @@ return (
                 );
               }
             }
-          )}
+          ): <div> Loading your routines... </div>}
         </div>
       </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
 import { NavLink } from "react-router-dom";
 
-const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
+const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
   useEffect(() => {
     getActivities().then((results) => {
       setAllActivities(results);
@@ -12,16 +12,19 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
   const token = localStorage.getItem("token");
   async function handleSubmit(event){
     event.preventDefault();
-    const freshActivity = await addActivity(
+    await addActivity(
         token,
         nameInput,
         descriptionInput
     );
-    setAllActivities([freshActivity, ...allActivities]);
+    const result = await getActivities();
+    setAllActivities(result);
+    setNameInput("");
+    setDescriptionInput("")
   }
 
 
-        if(token){
+        if(loggedIn){
             return(
         <div>   
         <div id="AddForm">
@@ -54,36 +57,38 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
               CREATE ACTIVITY
             </button>
           </form>
-          {allActivities.map(({ id, name, description }) => {
+          {allActivities.length ? allActivities.map((element) => {
+            const { id, name, description } = element
             const activityId = id
           return (
             <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              <NavLink to={`/activities/${activityId}`} className="editlink">
+              {/* <NavLink to={`/activities/${activityId}`} className="editlink">
             EDIT
-          </NavLink>
+          </NavLink> */}
             </div>
           );
-        })}
+        }): <div> Loading your activities.... </div>}
         </div>
         </div>)
       }else{
         return (
             <div>
         <div>
-        {allActivities.map(({ id, name, description }) => {
-            const activityId = id
+        {allActivities.length ? allActivities.map((element) => {
+          const { id, name, description } = element
+          const activityId = id
           return (
             <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              <NavLink to={`/activities/${activityId}`} className="editlink">
+              {/* <NavLink to={`/activities/${activityId}`} className="editlink">
             EDIT
-          </NavLink>
+          </NavLink> */}
             </div>
           );
-        })}
+        }): <div> Loading your activities...</div>}
       </div>
       
       

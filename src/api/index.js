@@ -181,10 +181,10 @@ export async function addActivity(
   }
 
   export async function addRoutineActivity(
-    id,
     activityId,
     countInput,
-    durationInput
+    durationInput,
+    id
   ) {
     const response = await fetch(`${API_URL}/routines/${id}/activity`, {
       method: "POST",
