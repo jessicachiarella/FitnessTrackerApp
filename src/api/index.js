@@ -145,7 +145,7 @@ export async function addActivity(
     nameInput,
     descriptionInput
   ) {
-    const response = await fetch(`${API_URL}/activities`, {
+    const response = await fetch(`${API_URL}/activities/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
