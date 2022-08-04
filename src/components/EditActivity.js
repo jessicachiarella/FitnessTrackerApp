@@ -2,8 +2,7 @@ import React from "react";
 import { updateActivity } from "../api/index";
 
 
-const EditActivity = ({ activityId }) => {
-  const [allActivities, setAllActivities] = useState([]);
+const EditActivity = ({ activityId, allActivities, setAllActivities }) => {
   const [nameInput, setNameInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
 
