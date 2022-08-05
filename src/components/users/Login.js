@@ -1,6 +1,8 @@
 import React from "react";
 import { LoginPerson } from "../../api/index.js";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
+
 
 const Login = ({ setLoggedIn, setUsername }) => {
   const navigate = useNavigate();
@@ -30,14 +32,15 @@ const Login = ({ setLoggedIn, setUsername }) => {
   return (
     <div id="loginBox">
       <form onSubmit={handleSubmit}>
-        <h1>Log in to you account</h1>
-        <label>login username</label>
+        <h1>Welcome to Fitness Tracker</h1>
+        <h1>Log In</h1>
+        <label>Login Username</label>
         <input id="username" placeholder="login username here"></input>
-        <label>password</label>
+        <label>Password</label>
         <input id="password" placeholder="login password here"></input>
         <button type="submit">Login</button>
         <button id="register" type="submit" onClick={registerButton}>
-          create account
+          Create Account
         </button>
       </form>
     </div>

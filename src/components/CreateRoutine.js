@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getRoutines, addRoutine } from "../api/index";
+import "./CreateRoutine.css"
 
 const CreateRoutine = ({ setAllRoutines }) =>{
 
@@ -27,7 +28,7 @@ const [checked, setChecked] = useState(false);
     <div>
     <h1>Add New Routine</h1>
   </div>
-  <form onSubmit={handleSubmit}>
+  <form className="FormRoutines" onSubmit={handleSubmit}>
     <div>
       <input
         id="AddName"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateRoutine, getRoutines } from "../api/index";
+import "./EditRoutine.css"
 
 const EditRoutine = ({
   routineId,

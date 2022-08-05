@@ -3,6 +3,7 @@ import { getRoutines } from "../../api/index";
 import CreateRoutine from "../CreateRoutine";
 import EditRoutine from "../EditRoutine";
 import DeleteRoutine from "../DeleteRoutine";
+import "./MyRoutines.css"
 import AddRoutineActivity from "../AddRoutineActivity";
 import EditRoutineActivity from "../EditRoutineActivity";
 import DeleteRoutineActivity from "../DeleteRoutineActivity";
@@ -25,7 +26,7 @@ const MyRoutines = ({
     return (
       <div>
         <div>
-          <h1 id="ProfileHeader">WELCOME TO MY ROUTINES</h1>
+          <h1 id="WelcomeToMyRoutines">WELCOME TO MY ROUTINES</h1>
         </div>
         <CreateRoutine 
                   allRoutines={allRoutines}

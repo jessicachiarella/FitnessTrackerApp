@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./Header.css"
 
 
 function Header({ loggedIn }) {
    
     return (
-       <header>
-         <h1>fitness tracker</h1>
+       <header className="NavBar">
+         <h1 id="title">FITNESS TRACKER</h1>
    
          {!loggedIn ? (
            <>

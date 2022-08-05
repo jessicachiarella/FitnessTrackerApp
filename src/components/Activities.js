@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
 import { NavLink } from "react-router-dom";
+import "./Activities.css"
 
 const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
 
         if(loggedIn){
             return(
-        <div>   
+        <div id="ActivityBox">   
         <div id="AddForm">
           <div>
             <h1>WELCOME TO ACTIVITIES</h1>
@@ -64,7 +65,8 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
             <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              {/* <NavLink to={`/activities/${activityId}`} className="editlink">
+
+              <NavLink to={`/activities/${activityId}`} className="editlink1">
             EDIT
           </NavLink> */}
             </div>
@@ -74,16 +76,18 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
         </div>)
       }else{
         return (
-            <div>
+            <div id="LoggedOutForm">
+            <h1>WELCOME TO ACTIVITIES</h1>
         <div>
         {allActivities.length ? allActivities.map((element) => {
           const { id, name, description } = element
           const activityId = id
           return (
-            <div key={activityId} className="activities">
+            <div key={activityId} className="NewActivitiesBox">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              {/* <NavLink to={`/activities/${activityId}`} className="editlink">
+
+              <NavLink to={`/activities/${activityId}`} className="editlink2">
             EDIT
           </NavLink> */}
             </div>
