@@ -16,7 +16,6 @@ const Routines = ({
   }, []);
 
  
-console.log(loggedIn," AM I LOGGED IN RIGHT NOW?")
    
 
 return (
@@ -28,8 +27,9 @@ return (
       <div>
         <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <div>
-          {allRoutines.map(
-            ({ id, name, isPublic, goal, creatorName, activities }) => {
+          {allRoutines.length ? allRoutines.map(
+            (element) => {
+              const { id, name, isPublic, goal, creatorName, activities } = element
               if (isPublic) {
                 return (
                   <div id="RoutineNames" key={id} className="WelcomeToRoutines">
@@ -55,7 +55,7 @@ return (
                 );
               }
             }
-          )}
+          ): <div> Loading your routines... </div>}
         </div>
       </div>
       </div>

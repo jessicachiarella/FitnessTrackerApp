@@ -3,7 +3,7 @@ import { updateRoutine, getRoutines } from "../api/index";
 import "./EditRoutine.css"
 
 const EditRoutine = ({
-  id,
+  routineId,
   setAllRoutines
 }) => {
 const [routineNameInput, setRoutineNameInput] = useState("");
@@ -13,7 +13,7 @@ const [checked, setChecked] = useState(false);
   async function handleSubmit(event) {
     event.preventDefault();
     await updateRoutine(
-      id,
+      routineId,
       routineNameInput,
       goalInput,
       checked
