@@ -11,8 +11,7 @@ const App = () => {
   const [allActivities, setAllActivities] = useState([]);
   const [nameInput, setNameInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
-  const [routineNameInput, setRoutineNameInput] = useState("");
-  const [goalInput, setGoalInput] = useState("");
+  
   
 
   return (
@@ -36,8 +35,8 @@ const App = () => {
           />
           <Route path="/users/me" element={<Me loggedIn={loggedIn}/>} />
           <Route path="/routines" element={<Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} loggedIn={loggedIn} />} />
-          <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} myRoutines={myRoutines} setMyRoutines={setMyRoutines} allRoutines={allRoutines} setAllRoutines={setAllRoutines} routineNameInput={routineNameInput} setRoutineNameInput={setRoutineNameInput} goalInput={goalInput} setGoalInput={setGoalInput} />} />
-          <Route path="/activities" element={<Activities allActivities={allActivities} setAllActivities={setAllActivities} nameInput={nameInput} setNameInput={setNameInput} descriptionInput={descriptionInput} setDescriptionInput={setDescriptionInput} />} />
+          <Route path="/users/myroutines" element={<MyRoutines loggedIn={loggedIn} username={username} myRoutines={myRoutines} setMyRoutines={setMyRoutines} allRoutines={allRoutines} setAllRoutines={setAllRoutines} allActivities={allActivities} setAllActivities={setAllActivities} />} />
+          <Route path="/activities" element={<Activities loggedIn={loggedIn} allActivities={allActivities} setAllActivities={setAllActivities} nameInput={nameInput} setNameInput={setNameInput} descriptionInput={descriptionInput} setDescriptionInput={setDescriptionInput} />} />
           <Route path="/header" element={<Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} setUsername={setUsername} setPassword={setPassword}/>} />
           <Route path="/users/logout" element={<Logout loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         </Routes>

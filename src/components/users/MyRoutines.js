@@ -3,18 +3,17 @@ import { getRoutines } from "../../api/index";
 import CreateRoutine from "../CreateRoutine";
 import EditRoutine from "../EditRoutine";
 import DeleteRoutine from "../DeleteRoutine";
+import AddRoutineActivity from "../AddRoutineActivity";
+import EditRoutineActivity from "../EditRoutineActivity";
+import DeleteRoutineActivity from "../DeleteRoutineActivity";
 
 const MyRoutines = ({
   username,
   loggedIn,
   allRoutines,
   setAllRoutines,
-  routineNameInput,
-  setRoutineNameInput,
-  goalInput,
-  setGoalInput,
-  checked,
-  setChecked
+  allActivities,
+  setAllActivities
 }) => {
   useEffect(() => {
     getRoutines().then((results) => {
@@ -22,8 +21,6 @@ const MyRoutines = ({
     });
   }, []);
 
-
-  console.log(loggedIn, "AM I LOGGED IN RIGHT NOW?");
   if (loggedIn) {
     return (
       <div>
@@ -31,52 +28,59 @@ const MyRoutines = ({
           <h1 id="ProfileHeader">WELCOME TO MY ROUTINES</h1>
         </div>
         <CreateRoutine 
-                  routineNameInput={routineNameInput}
-                  setRoutineNameInput={setRoutineNameInput}
-                  goalInput={goalInput}
-                  setGoalInput={setGoalInput}
-                  checked={checked}
-                  setChecked={setChecked}
                   allRoutines={allRoutines}
                   setAllRoutines={setAllRoutines} />
-        {allRoutines.map(({ id, name, goal, creatorName, activities }) => {
+        {allRoutines.length ? allRoutines.map((element) => {
+          const { id, name, goal, creatorName, activities } = element
+          const routineId = id
           if (creatorName === username) {
             return (
-              <div key={id} className="routines">
+              <div key={routineId} className="routines">
                 <h2 id="Name">{name}</h2>
                 <p id="Goal">Goal: {goal}</p>
                 <p id="creatorName">Creator Name: {creatorName}</p>
                 <EditRoutine
-                  id={id}
-                  routineNameInput={routineNameInput}
-                  setRoutineNameInput={setRoutineNameInput}
-                  goalInput={goalInput}
-                  setGoalInput={setGoalInput}
-                  checked={checked}
-                  setChecked={setChecked}
+                  routineId={routineId}
                   allRoutines={allRoutines}
                   setAllRoutines={setAllRoutines}
                 />
-                 <DeleteRoutine id={id} setAllRoutines={setAllRoutines} />
-
                 <div id="Activities">
-                  {activities.map(
-                    ({ id, name, description, count, duration }) => {
+                  {activities.length ? activities.map(
+                    (element) => { 
+                     const { id, name, description, count, duration, routineActivityId } = element
+                     const activityId = id
+                     const rAId = routineActivityId
                       return (
-                        <div key={id} className="activities">
+                        <div key={activityId} className="activities">
                           <h4 id="activityName">Activity:{name}</h4>
                           <p id="Description">Description: {description}</p>
                           <p id="Count">Count: {count}</p>
                           <p id="Duration">Duration: {duration}</p>
+                          <EditRoutineActivity
+                      allActivities={allActivities}
+                      setAllActivities={setAllActivities}
+                      rAId={rAId}
+                    />
+                    <DeleteRoutineActivity
+                      allActivities={allActivities}
+                      setAllActivities={setAllActivities}
+                      rAId={rAId}
+                    />
                         </div>
                       );
-                    }
-                  )}
+                      }):null}
+                      
                 </div>
+                <AddRoutineActivity
+                  routineId={routineId}
+                  allActivities={allActivities}
+                  setAllActivities={setAllActivities}
+                />
+                 <DeleteRoutine routineId={routineId} setAllRoutines={setAllRoutines} />
               </div>
             );
           }
-        })}
+        }): <div> Loading your routines...</div>}
       </div>
     );
   }

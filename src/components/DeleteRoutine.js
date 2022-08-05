@@ -1,10 +1,10 @@
 import React from "react";
 import { deleteRoutine, getRoutines } from "../api";
 
-const DeleteRoutine = ({ id, setAllRoutines }) => {
+const DeleteRoutine = ({ routineId, setAllRoutines }) => {
   async function handleDelete(event) {
     event.preventDefault();
-    await deleteRoutine(id);
+    await deleteRoutine(routineId);
     const result = await getRoutines();
     setAllRoutines(result);
   }
