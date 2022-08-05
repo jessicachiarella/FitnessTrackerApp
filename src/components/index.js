@@ -11,7 +11,7 @@ export {default as EditRoutineActivity} from './EditRoutineActivity'
 export {default as DeleteRoutineActivity} from './DeleteRoutineActivity'
 export {default as Activities} from './Activities'
 export {default as AddRoutineActivity} from './AddRoutineActivity'
-export {default as EditActivity} from './EditActivity'
+// export {default as EditActivity} from './EditActivity'
 export {default as Logout} from './users/Logout'
 
 

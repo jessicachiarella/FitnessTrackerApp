@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
-import { NavLink } from "react-router-dom";
 import "./Activities.css"
 
 const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
@@ -66,9 +65,9 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
 
-              <NavLink to={`/activities/${activityId}`} className="editlink1">
+              {/* <NavLink to={`/activities/${activityId}`} className="editlink1">
             EDIT
-          </NavLink> */}
+          </NavLink> */} 
             </div>
           );
         }): <div> Loading your activities.... </div>}
@@ -87,9 +86,9 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
 
-              <NavLink to={`/activities/${activityId}`} className="editlink2">
+              {/* <NavLink to={`/activities/${activityId}`} className="editlink2">
             EDIT
-          </NavLink> */}
+          </NavLink>  */}
             </div>
           );
         }): <div> Loading your activities...</div>}

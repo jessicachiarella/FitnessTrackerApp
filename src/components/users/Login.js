@@ -7,22 +7,25 @@ import "./Login.css"
 const Login = ({ setLoggedIn, setUsername }) => {
   const navigate = useNavigate();
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const loginUsername = event.target[0].value;
-    const token = await LoginPerson(event);
-    if (token) {
-      setLoggedIn(true);
-      localStorage.setItem("token", token);
-      localStorage.setItem("username", loginUsername);
-      setUsername(loginUsername);
+  try {
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const loginUsername = event.target[0].value;
+      const token = await LoginPerson(event);
+      if (token) {
+        setLoggedIn(true);
+        localStorage.setItem("token", token);
+        localStorage.setItem("username", loginUsername);
+        setUsername(loginUsername);
+      }
+  
+    
+  
+      navigate("/users/myRoutines");
+  
     }
 
   
-
-    navigate("/users/myRoutines");
-
-  }
 
   const registerButton = async (event) => {
     event.preventDefault();
@@ -45,6 +48,10 @@ const Login = ({ setLoggedIn, setUsername }) => {
       </form>
     </div>
   );
-};
 
+} catch (error) {
+  console.log(error)
+  throw error
+}
+}
 export default Login;
