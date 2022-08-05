@@ -10,6 +10,10 @@
     
 }
 
+#Name {
+    text-align: center;
+}
+
 .routines {
     margin-top: 150px;
     text-align: center;
@@ -24,9 +28,7 @@
     opacity: 90%;
 }
 
-#Name {
-    text-align: center;
-}
+
 
 
 
