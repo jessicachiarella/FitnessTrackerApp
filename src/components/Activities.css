@@ -1,7 +1,6 @@
 * {
     text-align: center;
 }
-
 #ActivityBox {
     background-color: lightgrey;
     color: black;
@@ -11,6 +10,8 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 24px;
+    opacity: 90%;
 }
 
 .h1 {
@@ -46,5 +47,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 24px;
+    opacity: 90%;
 }
 

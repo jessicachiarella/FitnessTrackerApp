@@ -2,8 +2,8 @@
     font-family: sans-serif;
 }
 
-h1 {
-    color: black;
+#WelcomeToMyRoutines {
+    color: white;
     font-size: 32px;
     line-height: 24px;
     text-decoration: underline;
@@ -11,7 +11,7 @@ h1 {
 }
 
 .routines {
-    margin-top: 15%;
+    margin-top: 150px;
     text-align: center;
     background-color: lightgrey;
     color: black;
@@ -21,6 +21,7 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    opacity: 90%;
 }
 
 #Name {

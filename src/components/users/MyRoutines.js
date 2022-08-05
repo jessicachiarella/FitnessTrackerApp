@@ -29,7 +29,7 @@ const MyRoutines = ({
     return (
       <div>
         <div>
-          <h1 id="ProfileHeader">WELCOME TO MY ROUTINES</h1>
+          <h1 id="WelcomeToMyRoutines">WELCOME TO MY ROUTINES</h1>
         </div>
         <CreateRoutine 
                   routineNameInput={routineNameInput}
