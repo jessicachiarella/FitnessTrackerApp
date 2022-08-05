@@ -15,7 +15,6 @@ const Routines = ({
   }, []);
 
  
-console.log(loggedIn," AM I LOGGED IN RIGHT NOW?")
    
 
 return (

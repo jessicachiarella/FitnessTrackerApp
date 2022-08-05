@@ -1,39 +1,55 @@
 import React, { useState, useEffect } from "react";
-import { matchRoutes } from "react-router-dom";
 import { addRoutineActivity, getActivities } from "../api";
 
-const AddRoutineActivity = ({ id, allActivities, setAllActivities }) => {
+const AddRoutineActivity = ({ routineId, allActivities, setAllActivities }) => {
   const [countInput, setCountInput] = useState("");
   const [durationInput, setDurationInput] = useState("");
   const [selectActivity, setSelectActivity] = useState("");
+  const [activityList, setActivityList] = useState([]);
 
+  useEffect(() => {
+    Promise.all([getActivities()]).then(([activities]) => {
+      setActivityList(activities);
+    });
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const array = await getActivities();
-    array.map(({id}) =>{return id})
-    const activityId = id
-    await addRoutineActivity(activityId, countInput, durationInput);
-    const result = await getActivities();
-    setAllActivities(result);
+    const attachActivity = await addRoutineActivity(
+      selectActivity,
+      countInput,
+      durationInput,
+      routineId
+    );
+    setAllActivities([...allActivities, attachActivity]);
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="selectactivity">Choose an activity:</label>
-          <select name="activity" id="searchactivity" value={selectActivity} onChange={(event) => {
-          setSelectActivity(event.target.value);
-        }}>
-        {allActivities.map((element, index) => {
-            const { name } = element
-            return(<option key={`${index}:${name}`} value={name}>
-                {name}
-            </option>)
-        })}
+        <fieldset>
+          <label htmlFor="select-activity">
+            Add Activity{" "}
+            <span className="activity-count">({activityList.length})</span>
+          </label>
+          <select
+            name="activity"
+            id="select-activity"
+            value={selectActivity}
+            onChange={function (event) {
+              setSelectActivity(event.target.value);
+            }}
+          >
+            <option value="any">Any</option>
+            {activityList.map((value) => {
+              return (
+                <option key={value.id} value={value.id}>
+                  {value.name}
+                </option>
+              );
+            })}
           </select>
-        </div>
+        </fieldset>
         <div>
           <input
             id="Count"

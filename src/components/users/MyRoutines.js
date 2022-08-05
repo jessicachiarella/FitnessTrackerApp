@@ -4,6 +4,8 @@ import CreateRoutine from "../CreateRoutine";
 import EditRoutine from "../EditRoutine";
 import DeleteRoutine from "../DeleteRoutine";
 import AddRoutineActivity from "../AddRoutineActivity";
+import EditRoutineActivity from "../EditRoutineActivity";
+import DeleteRoutineActivity from "../DeleteRoutineActivity";
 
 const MyRoutines = ({
   username,
@@ -19,8 +21,6 @@ const MyRoutines = ({
     });
   }, []);
 
-
-  console.log(loggedIn, "AM I LOGGED IN RIGHT NOW?");
   if (loggedIn) {
     return (
       <div>
@@ -32,39 +32,51 @@ const MyRoutines = ({
                   setAllRoutines={setAllRoutines} />
         {allRoutines.length ? allRoutines.map((element) => {
           const { id, name, goal, creatorName, activities } = element
+          const routineId = id
           if (creatorName === username) {
             return (
-              <div key={id} className="routines">
+              <div key={routineId} className="routines">
                 <h2 id="Name">{name}</h2>
                 <p id="Goal">Goal: {goal}</p>
                 <p id="creatorName">Creator Name: {creatorName}</p>
                 <EditRoutine
-                  id={id}
+                  routineId={routineId}
                   allRoutines={allRoutines}
                   setAllRoutines={setAllRoutines}
                 />
                 <div id="Activities">
                   {activities.length ? activities.map(
                     (element) => { 
-                     const { id, name, description, count, duration } = element
+                     const { id, name, description, count, duration, routineActivityId } = element
                      const activityId = id
+                     const rAId = routineActivityId
                       return (
                         <div key={activityId} className="activities">
                           <h4 id="activityName">Activity:{name}</h4>
                           <p id="Description">Description: {description}</p>
                           <p id="Count">Count: {count}</p>
                           <p id="Duration">Duration: {duration}</p>
+                          <EditRoutineActivity
+                      allActivities={allActivities}
+                      setAllActivities={setAllActivities}
+                      rAId={rAId}
+                    />
+                    <DeleteRoutineActivity
+                      allActivities={allActivities}
+                      setAllActivities={setAllActivities}
+                      rAId={rAId}
+                    />
                         </div>
                       );
-                    }
-                  ):null}
+                      }):null}
+                      
                 </div>
                 <AddRoutineActivity
-                  id={id}
+                  routineId={routineId}
                   allActivities={allActivities}
                   setAllActivities={setAllActivities}
                 />
-                 <DeleteRoutine id={id} setAllRoutines={setAllRoutines} />
+                 <DeleteRoutine routineId={routineId} setAllRoutines={setAllRoutines} />
               </div>
             );
           }

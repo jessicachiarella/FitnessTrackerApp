@@ -100,7 +100,6 @@ export async function addRoutine(
       }),
     });
     const result = await response.json();
-    console.log(result, "This is my editroutine from my api call")
     return result
   }
 
@@ -165,7 +164,6 @@ export async function addActivity(
     descriptionInput,
     activityId
   ) {
-    console.log(activityId, "This is my id from my edit api call")
     const response = await fetch(`${API_URL}/activities/${activityId}`, {
       method: "PATCH",
       headers: {
@@ -184,9 +182,9 @@ export async function addActivity(
     activityId,
     countInput,
     durationInput,
-    id
+    routineId
   ) {
-    const response = await fetch(`${API_URL}/routines/${id}/activity`, {
+    const response = await fetch(`${API_URL}/routines/${routineId}/activities`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -199,6 +197,41 @@ export async function addActivity(
       }),
     });
     const result = await response.json();
-    console.log(result, "This is my addroutineactivity from my api call")
+    return result
+  }
+
+  export async function updateRoutineActivity(
+    countInput,
+    durationInput,
+    rAId
+  ) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routine_activities/${rAId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        count: countInput,
+        duration: durationInput
+      }),
+    });
+    const result = await response.json();
+    return result
+  }
+
+  export async function deleteRoutineActivity(
+    rAId
+  ) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${API_URL}/routine_activities/${rAId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
     return result
   }
