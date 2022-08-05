@@ -1,0 +1,15 @@
+#registerBox {
+    display: flex;
+    background-color: lightgrey;
+    flex-direction: column;
+    color: black;
+    align-items: center;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+label {
+    font-size: 18px;
+}

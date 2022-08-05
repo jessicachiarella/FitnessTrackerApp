@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
 import { NavLink } from "react-router-dom";
+import "./Activities.css"
 
 const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
   useEffect(() => {
@@ -23,7 +24,7 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
 
         if(token){
             return(
-        <div>   
+        <div id="ActivityBox">   
         <div id="AddForm">
           <div>
             <h1>WELCOME TO ACTIVITIES</h1>
@@ -60,7 +61,7 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
             <div key={activityId} className="activities">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              <NavLink to={`/activities/${activityId}`} className="editlink">
+              <NavLink to={`/activities/${activityId}`} className="editlink1">
             EDIT
           </NavLink>
             </div>
@@ -70,15 +71,16 @@ const Activities = ({ allActivities, setAllActivities, nameInput, setNameInput, 
         </div>)
       }else{
         return (
-            <div>
+            <div id="LoggedOutForm">
+            <h1>WELCOME TO ACTIVITIES</h1>
         <div>
         {allActivities.map(({ id, name, description }) => {
             const activityId = id
           return (
-            <div key={activityId} className="activities">
+            <div key={activityId} className="NewActivitiesBox">
               <h4 id="activityName">Activity:{name}</h4>
               <p id="Description">Description: {description}</p>
-              <NavLink to={`/activities/${activityId}`} className="editlink">
+              <NavLink to={`/activities/${activityId}`} className="editlink2">
             EDIT
           </NavLink>
             </div>

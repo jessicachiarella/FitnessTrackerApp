@@ -3,6 +3,7 @@ import { getRoutines } from "../../api/index";
 import CreateRoutine from "../CreateRoutine";
 import EditRoutine from "../EditRoutine";
 import DeleteRoutine from "../DeleteRoutine";
+import "./MyRoutines.css"
 
 const MyRoutines = ({
   username,

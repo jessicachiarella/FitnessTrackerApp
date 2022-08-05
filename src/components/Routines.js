@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { getRoutines } from "../api/index";
+import "./Routines.css"
 
 const Routines = ({
   loggedIn,
@@ -19,19 +20,19 @@ console.log(loggedIn," AM I LOGGED IN RIGHT NOW?")
    
 
 return (
-    <div>
-      <h1 id="ProfileHeader">
+    <div id="RoutineBox">
+      <h1 className="PageHeader" id="ProfileHeader">
       WELCOME TO ROUTINES
       </h1>
 
       <div>
-        <h1 id="ProfileHeader">Routines</h1>
+        <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <div>
           {allRoutines.map(
             ({ id, name, isPublic, goal, creatorName, activities }) => {
               if (isPublic) {
                 return (
-                  <div key={id} className="routines">
+                  <div id="RoutineNames" key={id} className="WelcomeToRoutines">
                     <h2 id="Name">{name}</h2>
                     <p id="Goal">Goal: {goal}</p>
                     <p id="creatorName">Creator Name: {creatorName}</p>
@@ -40,7 +41,7 @@ return (
                       {activities.map(
                         ({ id, name, description, count, duration }) => {
                           return (
-                            <div key={id} className="activities">
+                            <div key={id} id="ActivityBox2">
                               <h4 id="activityName">Activity:{name}</h4>
                               <p id="Description">Description: {description}</p>
                               <p id="Count">Count: {count}</p>
