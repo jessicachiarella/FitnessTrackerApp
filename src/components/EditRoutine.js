@@ -1,23 +1,15 @@
 import React, { useState } from "react";
 import { updateRoutine, getRoutines } from "../api/index";
-import "./EditRoutine.css"
+import "./EditRoutine.css";
 
-const EditRoutine = ({
-  routineId,
-  setAllRoutines
-}) => {
-const [routineNameInput, setRoutineNameInput] = useState("");
-const [goalInput, setGoalInput] = useState("");
-const [checked, setChecked] = useState(false);
+const EditRoutine = ({ routineId, setAllRoutines }) => {
+  const [routineNameInput, setRoutineNameInput] = useState("");
+  const [goalInput, setGoalInput] = useState("");
+  const [checked, setChecked] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await updateRoutine(
-      routineId,
-      routineNameInput,
-      goalInput,
-      checked
-    );
+    await updateRoutine(routineId, routineNameInput, goalInput, checked);
     const result = await getRoutines();
     setAllRoutines(result);
     setRoutineNameInput("");

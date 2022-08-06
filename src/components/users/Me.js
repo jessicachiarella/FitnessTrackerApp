@@ -7,7 +7,6 @@ const Me = ({loggedIn}) => {
   let token = "";
   useEffect(() => {
     token = localStorage.getItem("token");
-    console.log(token, "this is my tokkkkkkkkkkken")
     async function getMyInfo(){
     const myInfo = await getUser(token);
     

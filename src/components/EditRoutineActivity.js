@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 import { updateRoutineActivity, getActivities } from "../api";
 
-const EditRoutineActivity = ({
-    allActivities,
-    setAllActivities,
-    rAId
-}) => {
-const [countInput, setCountInput] = useState("");
-const [durationInput, setDurationInput] = useState("")
-
+const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
+  const [countInput, setCountInput] = useState("");
+  const [durationInput, setDurationInput] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await updateRoutineActivity(
-        countInput,
-        durationInput,
-        rAId
-    );
+    await updateRoutineActivity(countInput, durationInput, rAId);
     const result = await getActivities();
     setAllActivities([...allActivities, result]);
     setCountInput("");
