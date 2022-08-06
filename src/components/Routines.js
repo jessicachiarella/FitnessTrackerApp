@@ -1,35 +1,27 @@
 import React, { useEffect } from "react";
 import { getRoutines } from "../api/index";
-import "./Routines.css"
+import "./Routines.css";
 
-const Routines = ({
-  loggedIn,
-  allRoutines,
-  setAllRoutines,
-}) => {
-
-
+const Routines = ({ allRoutines, setAllRoutines }) => {
   useEffect(() => {
     getRoutines().then((results) => {
       setAllRoutines(results);
     });
   }, []);
 
- 
-   
-
-return (
+  return (
     <div id="RoutineBox">
       <h1 className="PageHeader" id="ProfileHeader">
-      WELCOME TO ROUTINES
+        WELCOME TO ROUTINES
       </h1>
 
       <div>
         <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <div>
-          {allRoutines.length ? allRoutines.map(
-            (element) => {
-              const { id, name, isPublic, goal, creatorName, activities } = element
+          {allRoutines.length ? (
+            allRoutines.map((element) => {
+              const { id, name, isPublic, goal, creatorName, activities } =
+                element;
               if (isPublic) {
                 return (
                   <div id="RoutineNames" key={id} className="WelcomeToRoutines">
@@ -54,13 +46,14 @@ return (
                   </div>
                 );
               }
-            }
-          ): <div> Loading your routines... </div>}
+            })
+          ) : (
+            <div> Loading your routines... </div>
+          )}
         </div>
       </div>
-      </div>
-    );
-  }
-
+    </div>
+  );
+};
 
 export default Routines;

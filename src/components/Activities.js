@@ -1,8 +1,16 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
-import "./Activities.css"
+import "./Activities.css";
 
-const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setNameInput, descriptionInput, setDescriptionInput }) => {
+const Activities = ({
+  loggedIn,
+  allActivities,
+  setAllActivities,
+  nameInput,
+  setNameInput,
+  descriptionInput,
+  setDescriptionInput,
+}) => {
   useEffect(() => {
     getActivities().then((results) => {
       setAllActivities(results);
@@ -10,23 +18,22 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
   }, []);
 
   const token = localStorage.getItem("token");
-  async function handleSubmit(event){
+  async function handleSubmit(event) {
     event.preventDefault();
-    await addActivity(
-        token,
-        nameInput,
-        descriptionInput
-    );
-    const result = await getActivities();
-    setAllActivities(result);
-    setNameInput("");
-    setDescriptionInput("")
+    const result = await addActivity(token, nameInput, descriptionInput);
+    await getActivities();
+    if (result.error) {
+      alert(result.error);
+    } else {
+      setAllActivities(result);
+      setNameInput("");
+      setDescriptionInput("");
+    }
   }
 
-
-        if(loggedIn){
-            return(
-        <div id="ActivityBox">   
+  if (loggedIn) {
+    return (
+      <div id="ActivityBox">
         <div id="AddForm">
           <div>
             <h1>WELCOME TO ACTIVITIES</h1>
@@ -57,48 +64,46 @@ const Activities = ({ loggedIn, allActivities, setAllActivities, nameInput, setN
               CREATE ACTIVITY
             </button>
           </form>
-          {allActivities.length ? allActivities.map((element) => {
-            const { id, name, description } = element
-            const activityId = id
-          return (
-            <div key={activityId} className="activities">
-              <h4 id="activityName">Activity:{name}</h4>
-              <p id="Description">Description: {description}</p>
-
-              {/* <NavLink to={`/activities/${activityId}`} className="editlink1">
-            EDIT
-          </NavLink> */} 
-            </div>
-          );
-        }): <div> Loading your activities.... </div>}
+          {allActivities.length ? (
+            allActivities.map((element) => {
+              const { id, name, description } = element;
+              const activityId = id;
+              return (
+                <div key={activityId} className="activities">
+                  <h4 id="activityName">Activity:{name}</h4>
+                  <p id="Description">Description: {description}</p>
+                </div>
+              );
+            })
+          ) : (
+            <div> Loading your activities.... </div>
+          )}
         </div>
-        </div>)
-      }else{
-        return (
-            <div id="LoggedOutForm">
-            <h1>WELCOME TO ACTIVITIES</h1>
-        <div>
-        {allActivities.length ? allActivities.map((element) => {
-          const { id, name, description } = element
-          const activityId = id
-          return (
-            <div key={activityId} className="NewActivitiesBox">
-              <h4 id="activityName">Activity:{name}</h4>
-              <p id="Description">Description: {description}</p>
-
-              {/* <NavLink to={`/activities/${activityId}`} className="editlink2">
-            EDIT
-          </NavLink>  */}
-            </div>
-          );
-        }): <div> Loading your activities...</div>}
       </div>
-      
-      
-      
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div id="LoggedOutForm">
+        <h1>WELCOME TO ACTIVITIES</h1>
+        <div>
+          {allActivities.length ? (
+            allActivities.map((element) => {
+              const { id, name, description } = element;
+              const activityId = id;
+              return (
+                <div key={activityId} className="NewActivitiesBox">
+                  <h4 id="activityName">Activity:{name}</h4>
+                  <p id="Description">Description: {description}</p>
+                </div>
+              );
+            })
+          ) : (
+            <div> Loading your activities...</div>
+          )}
+        </div>
+      </div>
+    );
+  }
 };
-}
 
 export default Activities;

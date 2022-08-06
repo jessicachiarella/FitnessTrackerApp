@@ -1,31 +1,26 @@
 import React from "react";
 import { LoginPerson } from "../../api/index.js";
 import { useNavigate } from "react-router-dom";
-import "./Login.css"
-
+import "./Login.css";
 
 const Login = ({ setLoggedIn, setUsername }) => {
   const navigate = useNavigate();
 
-  try {
-    async function handleSubmit(event) {
-      event.preventDefault();
-      const loginUsername = event.target[0].value;
-      const token = await LoginPerson(event);
-      if (token) {
-        setLoggedIn(true);
-        localStorage.setItem("token", token);
-        localStorage.setItem("username", loginUsername);
-        setUsername(loginUsername);
-      }
-  
-    
-  
-      navigate("/users/myRoutines");
-  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const loginUsername = event.target[0].value;
+    const result = await LoginPerson(event);
+    if (result.token) {
+      setLoggedIn(true);
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("username", loginUsername);
+      setUsername(loginUsername);
+    } else {
+      alert(result.error);
     }
 
-  
+    navigate("/users/myRoutines");
+  }
 
   const registerButton = async (event) => {
     event.preventDefault();
@@ -48,10 +43,5 @@ const Login = ({ setLoggedIn, setUsername }) => {
       </form>
     </div>
   );
-
-} catch (error) {
-  console.log(error)
-  throw error
-}
-}
+};
 export default Login;

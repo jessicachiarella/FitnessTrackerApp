@@ -1,7 +1,7 @@
 import React from "react";
 import { deleteRoutineActivity, getActivities } from "../api";
 
-const DeleteRoutineActivity = ({ rAId, setAllActivities  }) => {
+const DeleteRoutineActivity = ({ rAId, setAllActivities }) => {
   async function handleDelete(event) {
     event.preventDefault();
     await deleteRoutineActivity(rAId);

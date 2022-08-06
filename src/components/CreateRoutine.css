@@ -1,19 +1,19 @@
 .FormRoutines {
-    background-color: lightgrey;
-    color: black;
-    width: 640px;
-    padding: 10px;
-    border: 5px solid black;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  background-color: lightgrey;
+  color: black;
+  width: 640px;
+  padding: 10px;
+  border: 5px solid black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 form {
-    text-align: center;
+  text-align: center;
 }
 
 h1 {
-    color: white;
-    text-decoration: underline;
+  color: white;
+  text-decoration: underline;
 }
