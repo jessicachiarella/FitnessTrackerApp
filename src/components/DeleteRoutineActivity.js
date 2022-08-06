@@ -1,5 +1,6 @@
 import React from "react";
 import { deleteRoutineActivity, getActivities } from "../api";
+import "./DeleteRoutineActivity.css"
 
 const DeleteRoutineActivity = ({ rAId, setAllActivities }) => {
   async function handleDelete(event) {
@@ -10,7 +11,7 @@ const DeleteRoutineActivity = ({ rAId, setAllActivities }) => {
   }
   return (
     <form onSubmit={handleDelete}>
-      <button id="deleteButton" type="Submit">
+      <button id="DeleteActivityButton" type="Submit">
         DELETE ACTIVITY
       </button>
     </form>

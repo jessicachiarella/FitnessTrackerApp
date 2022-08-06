@@ -34,8 +34,9 @@
 }
 
 #Description {
-  font-size: 14px;
+  font-size: 20px;
   margin-top: 0;
+  color: black;
 }
 
 #LoggedOutForm {
@@ -49,4 +50,16 @@
   transform: translateX(-50%);
   margin-top: 24px;
   opacity: 90%;
+}
+
+#LoggedOutWelcomeToActivities {
+  color: black;
+}
+
+#LoggedInToWelcomeToActivities {
+  color: black;
+}
+
+#LoggedInToAddNewActivity {
+  color: black;
 }

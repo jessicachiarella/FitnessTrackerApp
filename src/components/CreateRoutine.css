@@ -1,4 +1,4 @@
-.FormRoutines {
+/* .FormRoutines {
   background-color: lightgrey;
   color: black;
   width: 640px;
@@ -16,4 +16,8 @@ form {
 h1 {
   color: white;
   text-decoration: underline;
+} */
+
+* {
+  color: white;
 }

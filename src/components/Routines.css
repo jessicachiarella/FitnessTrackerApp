@@ -11,11 +11,13 @@
   opacity: 90%;
 }
 
-.activities {
+#ActivitiesInRoutines {
   text-align: left;
+  color: black;
 }
 
-#ActivityBox2 {
+
+
+.PageHeader {
   color: black;
-  opacity: 90%;
 }

@@ -24,7 +24,7 @@ const MyRoutines = ({
 
   if (loggedIn) {
     return (
-      <div>
+      <div id="WelcomeToMyRoutinesMain">
         <div>
           <h1 id="WelcomeToMyRoutines">WELCOME TO MY ROUTINES</h1>
         </div>

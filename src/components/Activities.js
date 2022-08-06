@@ -36,8 +36,8 @@ const Activities = ({
       <div id="ActivityBox">
         <div id="AddForm">
           <div>
-            <h1>WELCOME TO ACTIVITIES</h1>
-            <h1>Add New Activity</h1>
+            <h1 id="LoggedInToWelcomeToActivities">WELCOME TO ACTIVITIES</h1>
+            <h1 id="LoggedInToAddNewActivity">Add New Activity</h1>
           </div>
           <form onSubmit={handleSubmit}>
             <div>
@@ -84,7 +84,7 @@ const Activities = ({
   } else {
     return (
       <div id="LoggedOutForm">
-        <h1>WELCOME TO ACTIVITIES</h1>
+        <h1 id="LoggedOutWelcomeToActivities">WELCOME TO ACTIVITIES</h1>
         <div>
           {allActivities.length ? (
             allActivities.map((element) => {

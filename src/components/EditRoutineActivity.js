@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateRoutineActivity, getActivities } from "../api";
+import "./EditRoutineActivity.css"
 
 const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
   const [countInput, setCountInput] = useState("");
@@ -16,7 +17,7 @@ const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
 
   return (
     <div>
-      <div id="EditBox">
+      <div id="EditRoutineActivityBox">
         <div>
           <h5>Edit Routine Activity</h5>
         </div>

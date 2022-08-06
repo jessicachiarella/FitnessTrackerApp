@@ -30,8 +30,8 @@ const Login = ({ setLoggedIn, setUsername }) => {
   return (
     <div id="loginBox">
       <form onSubmit={handleSubmit}>
-        <h1>Welcome to Fitness Tracker</h1>
-        <h1>Log In</h1>
+        <h1 id="WelcomePage">Welcome to Fitness Tracker</h1>
+        <h1 id="LogInPage">Log In</h1>
         <label>Login Username</label>
         <input id="username" placeholder="login username here"></input>
         <label>Password</label>

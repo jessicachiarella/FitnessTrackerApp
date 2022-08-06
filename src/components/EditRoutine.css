@@ -1,5 +1,5 @@
-#EditBox {
-  margin-top: 5%;
+/* #EditBox {
+  margin-top: 150px;
   text-align: center;
   background-color: lightgrey;
   color: black;
@@ -14,4 +14,8 @@
 
 h5 {
   font-size: 20px;
+} */
+
+* {
+  color: white;
 }

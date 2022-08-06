@@ -29,7 +29,7 @@ const Routines = ({ allRoutines, setAllRoutines }) => {
                     <p id="Goal">Goal: {goal}</p>
                     <p id="creatorName">Creator Name: {creatorName}</p>
 
-                    <div id="Activities">
+                    <div id="ActivitiesInRoutines">
                       {activities.map(
                         ({ id, name, description, count, duration }) => {
                           return (
