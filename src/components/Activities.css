@@ -2,7 +2,7 @@
   text-align: center;
 }
 #ActivityBox {
-  background-color: lightgrey;
+  background-color: black;
   color: black;
   width: 640px;
   padding: 10px;
@@ -28,7 +28,7 @@
 }
 
 #activityName {
-  color: black;
+  color: white;
   font-size: 18px;
   text-decoration: underline;
 }
@@ -36,11 +36,11 @@
 #Description {
   font-size: 20px;
   margin-top: 0;
-  color: black;
+  color: white;
 }
 
 #LoggedOutForm {
-  background-color: lightgrey;
+  background-color: black;
   color: black;
   width: 640px;
   padding: 10px;
@@ -53,13 +53,13 @@
 }
 
 #LoggedOutWelcomeToActivities {
-  color: black;
+  color: white;
 }
 
 #LoggedInToWelcomeToActivities {
-  color: black;
+  color: white;
 }
 
 #LoggedInToAddNewActivity {
-  color: black;
+  color: white;
 }

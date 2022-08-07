@@ -12,7 +12,7 @@ const DeleteRoutine = ({ routineId, setAllRoutines }) => {
   return (
     <form onSubmit={handleDelete}>
       <button id="deleteButton" type="Submit">
-        DELETE
+        DELETE ROUTINE
       </button>
     </form>
   );

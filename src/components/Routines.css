@@ -1,5 +1,5 @@
 #RoutineBox {
-  background-color: lightgrey;
+  background-color: black;
   color: black;
   width: 640px;
   padding: 10px;
@@ -19,5 +19,25 @@
 
 
 .PageHeader {
-  color: black;
+  color: white;
+}
+
+#Count {
+  color: white;
+}
+
+#Duration {
+  color: white;
+}
+
+#Name {
+  color: white;
+}
+
+#Goal {
+  color: white;
+}
+
+#creatorName {
+  color: white;
 }

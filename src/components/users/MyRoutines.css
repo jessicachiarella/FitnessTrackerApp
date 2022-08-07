@@ -1,9 +1,8 @@
 * {
   font-family: sans-serif;
-  color: black;
 }
 
-#WelcomeToMyRoutinesMain {
+/* #WelcomeToMyRoutinesMain {
   color: black;
   margin-top: 24px;
   text-align: center;
@@ -16,18 +15,18 @@
   left: 50%;
   transform: translateX(-50%);
   opacity: 90%;
-}
+} */
 
 #WelcomeToMyRoutines {
-  color: black;
+  color: white;
 }
 
 
-#Name {
+/* #Name {
   text-align: center;
-}
+} */
 
-.routines {
+/* .routines {
   margin-top: 150px;
   text-align: center;
   background-color: lightgrey;
@@ -39,9 +38,9 @@
   left: 50%;
   transform: translateX(-50%);
   opacity: 90%;
-}
+} */
 
-#Activities {
+/* #Activities {
   margin-top: 400px;
   text-align: center;
   background-color: lightgrey;
@@ -53,5 +52,5 @@
   left: 50%;
   transform: translateX(-50%);
   opacity: 90%;
-}
+} */
 

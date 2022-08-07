@@ -24,7 +24,7 @@ const Routines = ({ allRoutines, setAllRoutines }) => {
                 element;
               if (isPublic) {
                 return (
-                  <div id="RoutineNames" key={id} className="WelcomeToRoutines">
+                  <div id="RoutineNamesGeneral" key={id} className="WelcomeToRoutines">
                     <h2 id="Name">{name}</h2>
                     <p id="Goal">Goal: {goal}</p>
                     <p id="creatorName">Creator Name: {creatorName}</p>
@@ -33,7 +33,7 @@ const Routines = ({ allRoutines, setAllRoutines }) => {
                       {activities.map(
                         ({ id, name, description, count, duration }) => {
                           return (
-                            <div key={id} id="ActivityBox2">
+                            <div key={id} id="MyRoutinesActivityBox2">
                               <h4 id="activityName">Activity:{name}</h4>
                               <p id="Description">Description: {description}</p>
                               <p id="Count">Count: {count}</p>
