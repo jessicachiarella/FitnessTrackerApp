@@ -1,4 +1,5 @@
-const API_URL = "https://fitnesstrac-kr.herokuapp.com/api/";
+const API_URL = "https://fitnesstrac-kr.herokuapp.com/api";
+
 
 export async function RegisterPerson(event) { 
   try {
@@ -14,14 +15,13 @@ export async function RegisterPerson(event) {
         password: registerPassword,
       }),
     });
-  
     const result = await response.json();
     return result;
   } catch (error) {
     throw error
   }
 
- 
+
 }
 
 export async function LoginPerson(event) {
@@ -40,13 +40,14 @@ export async function LoginPerson(event) {
         });
         const result = await response.json();
         return result;
-      
+
     } catch (error) {
         throw error
     }
 }
 
   export async function getUser(token) {
+    try{
     const response = await fetch(`${API_URL}/users/me`, {
       headers: {
         "Content-Type": "application/json",
@@ -55,9 +56,12 @@ export async function LoginPerson(event) {
     });
     const result = await response.json();
     return result;
-}
+}  catch (error) {
+  throw error
+}}
 
 export async function getRoutines() {
+  try{
     const response = await fetch(`${API_URL}/routines`, {
       headers: {
         "Content-Type": "application/json",
@@ -65,13 +69,16 @@ export async function getRoutines() {
     });
     const routines = await response.json();
     return routines;
-}
+}catch (error) {
+  throw error
+}}
 
 export async function addRoutine(
     routineNameInput,
     goalInput,
     isPublicInput
   ) {
+    try{
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routines`, {
       method: "POST",
@@ -88,7 +95,9 @@ export async function addRoutine(
     });
     const result = await response.json();
     return result
-  }
+  } catch (error) {
+    throw error
+  }}
 
   export async function updateRoutine(
     id,
@@ -96,6 +105,7 @@ export async function addRoutine(
     goalInput,
     isPublicInput
   ) {
+    try{
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routines/${id}`, {
       method: "PATCH",
@@ -111,11 +121,14 @@ export async function addRoutine(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}
 
   export async function deleteRoutine(
     id
   ) {
+    try{
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routines/${id}`, {
       method: "DELETE",
@@ -126,9 +139,14 @@ export async function addRoutine(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}
 
-export async function getUserRoutines(username) {
+export async function getUserRoutines() {
+  try{
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username")
     const response = await fetch(`${API_URL}/users/${username}/routines`, {
       headers: {
         "Content-Type": "application/json",
@@ -137,9 +155,12 @@ export async function getUserRoutines(username) {
     });
     const userRoutines = await response.json();
     return userRoutines;
-}
+}catch (error) {
+  throw error
+}}
 
 export async function getActivities() {
+  try{
     const response = await fetch(`${API_URL}/activities`, {
       headers: {
         "Content-Type": "application/json",
@@ -147,7 +168,9 @@ export async function getActivities() {
     });
     const activities = await response.json();
     return activities;
-}
+}catch (error) {
+  throw error
+}}
 
 export async function addActivity(
     token,
@@ -172,7 +195,7 @@ export async function addActivity(
     } catch (error) {
       throw error
     }
-    
+
   }
 
   export async function updateActivity(
@@ -180,6 +203,7 @@ export async function addActivity(
     descriptionInput,
     activityId
   ) {
+    try{
     const response = await fetch(`${API_URL}/activities/${activityId}`, {
       method: "PATCH",
       headers: {
@@ -192,7 +216,9 @@ export async function addActivity(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}
 
   export async function addRoutineActivity(
     activityId,
@@ -200,6 +226,7 @@ export async function addActivity(
     durationInput,
     routineId
   ) {
+    try{
     const response = await fetch(`${API_URL}/routines/${routineId}/activities`, {
       method: "POST",
       headers: {
@@ -214,13 +241,16 @@ export async function addActivity(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}
 
   export async function updateRoutineActivity(
     countInput,
     durationInput,
     rAId
   ) {
+    try{
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routine_activities/${rAId}`, {
       method: "PATCH",
@@ -235,11 +265,14 @@ export async function addActivity(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}
 
   export async function deleteRoutineActivity(
     rAId
   ) {
+    try{
     const token = localStorage.getItem("token");
     const response = await fetch(`${API_URL}/routine_activities/${rAId}`, {
       method: "DELETE",
@@ -250,4 +283,6 @@ export async function addActivity(
     });
     const result = await response.json();
     return result
-  }
+  }catch (error) {
+    throw error
+  }}

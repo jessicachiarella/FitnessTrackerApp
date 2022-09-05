@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   Register,
@@ -21,12 +21,20 @@ const App = () => {
   const [nameInput, setNameInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      const user = (localStorage.getItem("username"))
+      setLoggedIn(true);
+      setUsername(user);
+    }
+  }, []);
+
   return (
     <div>
       <Header loggedIn={loggedIn} />
       <>
         <Routes>
-          <Route path="/users/register" element={<Register />} />
+          <Route path="/users/register" element={<Register setLoggedIn={setLoggedIn}/>} />
           <Route
             path="/users/Login"
             element={

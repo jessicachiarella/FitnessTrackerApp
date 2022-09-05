@@ -1,16 +1,24 @@
 import React from "react";
 import { RegisterPerson } from "../../api/index.js";
-import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  const result = await RegisterPerson(event);
-  if (result.error) {
-    alert(result.error);
+
+
+const Register = ({setLoggedIn}) => {
+  const navigate = useNavigate();
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const result = await RegisterPerson(event);
+    if (result.error) {
+      alert(result.error);
+    }else{
+      setLoggedIn(true);
+      alert("You've registered an account!")
+      navigate("/users/myRoutines");
+    }
+
   }
-}
 
-const Register = () => {
   return (
     <div id="registerBox">
       <form onSubmit={handleSubmit}>

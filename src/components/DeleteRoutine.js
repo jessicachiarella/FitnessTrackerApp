@@ -1,12 +1,12 @@
 import React from "react";
-import { deleteRoutine, getRoutines } from "../api";
-import "./DeleteRoutine.css";
+import { deleteRoutine, getUserRoutines } from "../api";
+
 
 const DeleteRoutine = ({ routineId, setAllRoutines }) => {
   async function handleDelete(event) {
     event.preventDefault();
     await deleteRoutine(routineId);
-    const result = await getRoutines();
+    const result = await getUserRoutines();
     setAllRoutines(result);
   }
   return (

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { getActivities, addActivity } from "../api/index";
-import "./Activities.css";
 
 const Activities = ({
   loggedIn,

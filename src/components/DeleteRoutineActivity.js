@@ -1,6 +1,6 @@
 import React from "react";
 import { deleteRoutineActivity, getActivities } from "../api";
-import "./DeleteRoutineActivity.css"
+
 
 const DeleteRoutineActivity = ({ rAId, setAllActivities }) => {
   async function handleDelete(event) {

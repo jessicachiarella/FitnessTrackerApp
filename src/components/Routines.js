@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { getRoutines } from "../api/index";
-import "./Routines.css";
+
 
 const Routines = ({ allRoutines, setAllRoutines }) => {
   useEffect(() => {

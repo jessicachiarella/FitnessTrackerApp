@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateRoutineActivity, getActivities } from "../api";
-import "./EditRoutineActivity.css"
+
 
 const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
   const [countInput, setCountInput] = useState("");

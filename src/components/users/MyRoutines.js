@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { getRoutines } from "../../api/index";
+import { getUserRoutines } from "../../api/index";
 import CreateRoutine from "../CreateRoutine";
 import EditRoutine from "../EditRoutine";
 import DeleteRoutine from "../DeleteRoutine";
-import "./MyRoutines.css";
 import AddRoutineActivity from "../AddRoutineActivity";
 import EditRoutineActivity from "../EditRoutineActivity";
 import DeleteRoutineActivity from "../DeleteRoutineActivity";
@@ -17,12 +16,13 @@ const MyRoutines = ({
   setAllActivities,
 }) => {
   useEffect(() => {
-    getRoutines().then((results) => {
+    getUserRoutines().then((results) => {
       setAllRoutines(results);
     });
-  }, []);
+  }, [allActivities]);
 
   if (loggedIn) {
+    console.log(username, "username")
     return (
       <div id="WelcomeToMyRoutinesMain">
         <div>

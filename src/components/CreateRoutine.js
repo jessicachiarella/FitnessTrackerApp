@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { getRoutines, addRoutine } from "../api/index";
-import "./CreateRoutine.css";
+import { getUserRoutines, addRoutine } from "../api/index";
+
 
 const CreateRoutine = ({ setAllRoutines }) => {
   const [routineNameInput, setRoutineNameInput] = useState("");
   const [goalInput, setGoalInput] = useState("");
   const [checked, setChecked] = useState(false);
 
+
   async function handleSubmit(event) {
     event.preventDefault();
-    await addRoutine(routineNameInput, goalInput, checked);
-    const result = await getRoutines();
+    const newRoutine = await addRoutine(routineNameInput, goalInput, checked);
+    console.log(newRoutine, "This is my new routine")
+    if (newRoutine.error){
+        alert("Routine already exists");
+    } else {
+    const result = await getUserRoutines();
+    console.log(result, "This is my result")
     setAllRoutines(result);
     setRoutineNameInput("");
     setGoalInput("");
-    setChecked(event.target.checked);
-  }
+    setChecked(false);
+  }}
+
   function handleChange(event) {
-    event.preventDefault();
     setChecked(event.target.checked);
   }
 
