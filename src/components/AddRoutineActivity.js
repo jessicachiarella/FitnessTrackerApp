@@ -21,8 +21,14 @@ const AddRoutineActivity = ({ routineId, allActivities, setAllActivities }) => {
       durationInput,
       routineId
     );
+    if (attachActivity.error){
+      alert("Failed to add activity. Please try again.");
+    }else {
+      setCountInput("");
+      setDurationInput("");
+      setSelectActivity("");
     setAllActivities([...allActivities, attachActivity]);
-  }
+  }}
 
   return (
     <div>
@@ -71,7 +77,7 @@ const AddRoutineActivity = ({ routineId, allActivities, setAllActivities }) => {
           />
         </div>
         <button id="AddButton" type="Submit">
-          CREATE ACTIVITY
+          ADD ACTIVITY
         </button>
       </form>
     </div>
