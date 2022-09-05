@@ -24,10 +24,10 @@ const MyRoutines = ({
   if (loggedIn) {
     console.log(username, "username")
     return (
-      <div className="MyRoutinesMain">
-        <div>
+      <div>
           <h1 className="MyRoutines">MY ROUTINES</h1>
-        </div>
+          <div className="Container">
+          <div className="centerBox">
         <CreateRoutine
           allRoutines={allRoutines}
           setAllRoutines={setAllRoutines}
@@ -38,7 +38,7 @@ const MyRoutines = ({
             const routineId = id;
             if (creatorName === username) {
               return (
-                <div key={routineId} className="routines">
+                <div key={routineId} className="Routines">
                   <h2 id="Name">{name}</h2>
                   <p id="Goal">Goal: {goal}</p>
                   <p id="creatorName">Creator Name: {creatorName}</p>
@@ -47,7 +47,8 @@ const MyRoutines = ({
                     allRoutines={allRoutines}
                     setAllRoutines={setAllRoutines}
                   />
-                  <div id="Activities">
+                  <div className="ActivityBox">
+                  <div>
                     {activities.length
                       ? activities.map((element) => {
                           const {
@@ -62,7 +63,7 @@ const MyRoutines = ({
                           const rAId = routineActivityId;
                           return (
                             <div key={activityId} className="activities">
-                              <h4 id="activityName">Activity:{name}</h4>
+                              <h4 id="activityName">{name}</h4>
                               <p id="Description">Description: {description}</p>
                               <p id="Count">Count: {count}</p>
                               <p id="Duration">Duration: {duration}</p>
@@ -81,6 +82,7 @@ const MyRoutines = ({
                         })
                       : null}
                   </div>
+                  </div>
                   <AddRoutineActivity
                     routineId={routineId}
                     allActivities={allActivities}
@@ -97,6 +99,8 @@ const MyRoutines = ({
         ) : (
           <div> Loading your routines...</div>
         )}
+      </div>
+      </div>
       </div>
     );
   }

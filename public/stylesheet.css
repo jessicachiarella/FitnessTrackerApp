@@ -5,6 +5,78 @@
     font-family: Lexend;
 }
 
+.FitnessTracker{
+    font-family: Lexend;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    padding: 25px;
+
+}
+
+label{
+    font-family: Lexend;
+    font-weight: bold;
+    margin: 5px;
+}
+
+input{
+    margin: 5px;
+    border: none;
+}
+
+form{
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.centerBox{
+    display:flex;
+    flex-direction: column;
+    background-color: transparent;
+    text-align: center;
+}
+/* background-color: #FEF103; */
+button{
+    margin: 5px;
+    background-color: #703add;
+    border: none;
+    padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: white;
+}
+
+
+
+h1{
+    font-family: Lexend;
+    text-align: center;
+}
+
+h2{
+    font-family: Lexend;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid black;
+   
+}
+
+p{
+    font-family: Lexend;
+    text-align: left;
+    padding-left: 15px;
+}
+
 .Links{
 text-decoration: none;
 color: black;
@@ -25,6 +97,20 @@ margin: 10px;
     
 }
 
+.Container{
+    display: flex;
+    justify-content: center;
+}
+
+.Routines{
+    justify-content: center;
+    padding: 15px;
+    backdrop-filter: brightness(200%) blur(10px);
+    margin-left: 45px;
+    margin-right: 45px;
+
+}
+
 .myRoutines{
     font-family: Lexend;
     font-weight: bold;
@@ -35,4 +121,126 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+  }
+
+  .activityBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .Activity{
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #703add;
+    margin: 5px;
+    color: white;
+    padding: 5px;
+  }
+
+  h4{
+    font-family: Lexend;
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .AddBox{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 45px;
+    margin-left: 45px;
+  }
+  .AddForm{
+    justify-content: center;
+    width: 30%;
+    margin: 15px;
+  }
+
+  .addActivity{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .EditBox{
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .editContainer{
+    display: flex;
+    align-items: center;
+  }
+
+  .editForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 5px;
+
+  }
+
+  .isPublic{
+    font-size: 15px;
+  }
+
+  .AddRA {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid gray;
+    padding: 15px;
+  }
+
+  .AddRAContainer{
+    display: flex;
+    justify-content: center;
+  }
+
+  .EditABox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid gray;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .editAForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5px;
+  }
+
+  .ActivityBox{
+    padding: 15px;
+    background-color: #703add;
+    color: white;
+  }
+
+  .ActivityButton{
+    margin: 5px;
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  color: #703add;
+  }
+
+  .DeleteRA{
+    display: flex;
+    padding: 10px;
   }

@@ -14,7 +14,7 @@ const Activities = ({
     getActivities().then((results) => {
       setAllActivities(results);
     });
-  }, []);
+  }, [allActivities]);
 
   const token = localStorage.getItem("token");
   async function handleSubmit(event) {
@@ -32,13 +32,12 @@ const Activities = ({
 
   if (loggedIn) {
     return (
-      <div id="ActivityBox">
-        <div id="AddForm">
-          <div>
+      <div className="Container">
+        <div>
+          <div className="addActivity">
             <h1 id="LoggedInToWelcomeToActivities">WELCOME TO ACTIVITIES</h1>
-            <h1 id="LoggedInToAddNewActivity">Add New Activity</h1>
-          </div>
-          <form onSubmit={handleSubmit}>
+          <form className="AddForm" onSubmit={handleSubmit}>
+          <h2 id="LoggedInToAddNewActivity">Add New Activity</h2>
             <div>
               <input
                 id="AddName"
@@ -63,15 +62,18 @@ const Activities = ({
               CREATE ACTIVITY
             </button>
           </form>
+          </div>
+          <div className="activityBox">
           {allActivities.length ? (
             allActivities.map((element) => {
               const { id, name, description } = element;
               const activityId = id;
               return (
-                <div key={activityId} className="activities">
-                  <h4 id="activityName">Activity:{name}</h4>
+                <div key={activityId} className="Activity">
+                  <h4 id="activityName">{name}</h4>
                   <p id="Description">Description: {description}</p>
                 </div>
+                
               );
             })
           ) : (
@@ -79,19 +81,20 @@ const Activities = ({
           )}
         </div>
       </div>
+      </div>
     );
   } else {
     return (
-      <div id="LoggedOutForm">
+      <div>
         <h1 id="LoggedOutWelcomeToActivities">WELCOME TO ACTIVITIES</h1>
-        <div>
+        <div className="activityBox">
           {allActivities.length ? (
             allActivities.map((element) => {
               const { id, name, description } = element;
               const activityId = id;
               return (
-                <div key={activityId} className="NewActivitiesBox">
-                  <h4 id="activityName">Activity:{name}</h4>
+                <div key={activityId} className="Activity">
+                  <h4 id="activityName">{name}</h4>
                   <p id="Description">Description: {description}</p>
                 </div>
               );

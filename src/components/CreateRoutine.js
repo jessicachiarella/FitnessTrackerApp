@@ -28,11 +28,9 @@ const CreateRoutine = ({ setAllRoutines }) => {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Add New Routine</h1>
-      </div>
-      <form className="FormRoutines" onSubmit={handleSubmit}>
+    <div className="AddBox">
+      <form className="editForm" onSubmit={handleSubmit}>
+      <h4>Add New Routine</h4>
         <div>
           <input
             id="AddName"
@@ -54,7 +52,7 @@ const CreateRoutine = ({ setAllRoutines }) => {
           />
         </div>
         <div>
-          <label htmlFor="isPublic">
+          <label className="isPublic" htmlFor="isPublic">
             <input
               id="isPublic"
               type="checkbox"
@@ -62,11 +60,11 @@ const CreateRoutine = ({ setAllRoutines }) => {
               checked={checked}
               onChange={handleChange}
             />
-            Routine is Public?
+            Make Routine Public?
           </label>
         </div>
         <button id="AddButton" type="Submit">
-          CREATE ROUTINE
+          ADD
         </button>
       </form>
     </div>

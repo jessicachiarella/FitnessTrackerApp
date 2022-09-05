@@ -16,12 +16,9 @@ const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
   }
 
   return (
-    <div>
-      <div id="EditRoutineActivityBox">
-        <div>
-          <h5>Edit Routine Activity</h5>
-        </div>
-        <form onSubmit={handleSubmit}>
+      <div className="EditABox">
+        <form className="editAForm" onSubmit={handleSubmit}>
+        <h4>Edit Activity: </h4>
           <div>
             <input
               id="EditCount"
@@ -42,12 +39,11 @@ const EditRoutineActivity = ({ allActivities, setAllActivities, rAId }) => {
               }}
             />
           </div>
-          <button id="Ebutton" type="Submit">
+          <button className="ActivityButton" id="Ebutton" type="Submit">
             SAVE
           </button>
         </form>
       </div>
-    </div>
   );
 };
 

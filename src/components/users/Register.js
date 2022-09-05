@@ -20,12 +20,12 @@ const Register = ({setLoggedIn}) => {
   }
 
   return (
-    <div id="registerBox">
+    <div className="Container">
       <form onSubmit={handleSubmit}>
         <h1>Sign Up for an Account</h1>
-        <label>Create Username</label>
+        <label>Create Username:</label>
         <input id="username" placeholder="create username here"></input>
-        <label>Create Password</label>
+        <label>Create Password:</label>
         <input id="password" placeholder="create password here"></input>
         <button type="submit">Create Account</button>
       </form>

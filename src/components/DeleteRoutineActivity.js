@@ -10,8 +10,8 @@ const DeleteRoutineActivity = ({ rAId, setAllActivities }) => {
     setAllActivities(result);
   }
   return (
-    <form onSubmit={handleDelete}>
-      <button id="DeleteActivityButton" type="Submit">
+    <form className="DeleteRA" onSubmit={handleDelete}>
+      <button className="ActivityButton" type="Submit">
         DELETE ACTIVITY
       </button>
     </form>

@@ -28,18 +28,19 @@ const Login = ({ setLoggedIn, setUsername }) => {
   };
 
   return (
-    <div id="loginBox">
+    <div className="Container">
       <form onSubmit={handleSubmit}>
-        <h1 id="WelcomePage">Welcome to Fitness Tracker</h1>
-        <h1 id="LogInPage">Log In</h1>
-        <label>Login Username</label>
-        <input id="username" placeholder="login username here"></input>
-        <label>Password</label>
-        <input id="password" placeholder="login password here"></input>
+        <h1 id="WelcomePage">Log In To Your Account</h1>
+        <div className="centerBox">
+        <label>Username:</label>
+        <input id="username" placeholder="Enter username"></input>
+        <label>Password:</label>
+        <input id="password" type="password" placeholder="Enter password"></input>
         <button type="submit">Login</button>
         <button id="register" type="submit" onClick={registerButton}>
           Create Account
         </button>
+        </div>
       </form>
     </div>
   );

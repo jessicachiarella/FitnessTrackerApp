@@ -22,12 +22,10 @@ const EditRoutine = ({routineId, setAllRoutines }) => {
   }
 
   return (
-    <div>
-      <div id="EditBox">
-        <div>
-          <h5>Edit Routine</h5>
-        </div>
-        <form onSubmit={handleSubmit}>
+    <div className="EditBox">
+      <div className="editContainer">
+          <h4>Edit Routine:</h4>
+        <form className="editForm" onSubmit={handleSubmit}>
           <div>
             <input
               id="ERoutineName"
@@ -49,15 +47,15 @@ const EditRoutine = ({routineId, setAllRoutines }) => {
             />
           </div>
           <div>
-            <label htmlFor="isPublic">
+            <label className="isPublic" htmlFor="isPublic">
               <input
-                id="isPublic"
+                className="checkbox"
                 type="checkbox"
                 name="isPublic"
                 checked={checked}
                 onChange={handleChange}
               />
-              Routine is Public?
+              Make Routine Public?
             </label>
           </div>
           <button id="Ebutton" type="Submit">

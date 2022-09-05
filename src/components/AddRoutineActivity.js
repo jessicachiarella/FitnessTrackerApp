@@ -31,8 +31,8 @@ const AddRoutineActivity = ({ routineId, allActivities, setAllActivities }) => {
   }}
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="AddRA">
+      <form className="AddRAContainer" onSubmit={handleSubmit}>
         <fieldset>
           <label htmlFor="select-activity">
             Add Activity{" "}

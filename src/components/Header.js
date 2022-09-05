@@ -5,7 +5,9 @@ import { NavLink } from "react-router-dom";
 function Header({ loggedIn }) {
   return (
     <header className="NavBar">
-      <h1 id="title">FITNESS TRACKER</h1>
+      <NavLink className="FitnessTracker" to="/">
+              FITNESS TRACKER
+            </NavLink>
 
       {!loggedIn ? (
         <>
