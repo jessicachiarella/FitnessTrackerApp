@@ -1,1 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&family=Raleway:wght@100&display=swap');
 
+.NavBar{
+    text-align: center;
+    font-family: Lexend;
+}
+
+.Links{
+text-decoration: none;
+color: black;
+margin: 10px;
+}
+
+.homeScreen{
+    display: flex;
+    justify-content: center;
+    font-family: Lexend;
+    font-size: 24px;
+    margin-top: 10%;
+
+}
+
+.LetsGetFit{
+    text-decoration: none;
+    
+}
+
+.myRoutines{
+    font-family: Lexend;
+    font-weight: bold;
+
+}
+body {
+    background-image: url('../Images/fitness.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }

@@ -24,9 +24,9 @@ const MyRoutines = ({
   if (loggedIn) {
     console.log(username, "username")
     return (
-      <div id="WelcomeToMyRoutinesMain">
+      <div className="MyRoutinesMain">
         <div>
-          <h1 id="WelcomeToMyRoutines">WELCOME TO MY ROUTINES</h1>
+          <h1 className="MyRoutines">MY ROUTINES</h1>
         </div>
         <CreateRoutine
           allRoutines={allRoutines}

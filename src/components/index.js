@@ -12,3 +12,4 @@ export { default as DeleteRoutineActivity } from "./DeleteRoutineActivity";
 export { default as Activities } from "./Activities";
 export { default as AddRoutineActivity } from "./AddRoutineActivity";
 export { default as Logout } from "./users/Logout";
+export { default as Home } from "./Home";

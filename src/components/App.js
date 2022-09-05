@@ -9,6 +9,7 @@ import {
   Routines,
   Activities,
   Logout,
+  Home
 } from "./";
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
       <Header loggedIn={loggedIn} />
       <>
         <Routes>
+        <Route path="/" element={<Home loggedIn={loggedIn}/>} />
           <Route path="/users/register" element={<Register setLoggedIn={setLoggedIn}/>} />
           <Route
             path="/users/Login"
